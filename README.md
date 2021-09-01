@@ -1,5 +1,5 @@
-# pngtowebp-script
-Unzips every folder in the directory and converts png images to webp losslessly, then rezips the images into a .cbz
+# What this does
+Unzips every zip folder in the directory, converts png images to webp losslessly, deletes the extracted png files, then rezips the webp images (and .json) into a .cbz folder
 
 # How to use
 1. Make sure ffmpeg and python is installed
