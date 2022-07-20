@@ -12,3 +12,11 @@ Unzips every zip folder in the directory, converts png images to webp losslessly
 1. Drop script.py and requirements.txt in the same directory as your zips
 2. Run `pip install -r requirements.txt` in terminal
 3. Run `python script.py` in terminal
+
+## remove underscores.py
+
+### What this does
+As the name implies, replaces underscores found in filenames with spaces
+
+### How to use
+1. Drop file in same location as files to rename and run in terminal
