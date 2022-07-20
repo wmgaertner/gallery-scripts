@@ -1,0 +1,6 @@
+## used for logging
+rich==12.5.1
+
+## required by rich
+commonmark==0.9.1
+Pygments==2.12.0
