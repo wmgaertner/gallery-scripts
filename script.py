@@ -8,7 +8,12 @@ def convert_image(source_path: Path, dest_path: Path):
         os.remove(source_path)
     except Exception as e:
         print(f"[red]e")
-    
+
+def get_images(file_extensions: str):
+    all_images: Path = []
+    for ext in file_extensions:
+        all_images.extend(Path('.').glob(ext))
+    return all_images
 
 if __name__ == '__main__':
     try:
@@ -21,18 +26,18 @@ if __name__ == '__main__':
                 file = zipfile.ZipFile(path, "r")
                 file.extractall()
 
-                paths = Path(".").glob("*.png")
+                paths = get_images(("*.png", "*.jpg"))
 
                 for image_path in paths:
                     convert_image(image_path, image_path.with_suffix(".webp"))
 
                 cbz = zipfile.ZipFile(os.path.join(cwd, cbzname), "w")
                 for files2 in os.listdir(cwd):
-                    if files2.endswith('.webp') or files2.endswith('.json') or files2.endswith('.jpg'):
+                    if files2.endswith('.webp') or files2.endswith('.json'):
                         cbz.write(files2)
                         os.remove(files2)
                 cbz.close()
                 print(f"[green]Created: {cbzname}")
 
     except Exception as e:
-        print(f"[red]e")
+        print(f"[red]{e}")
